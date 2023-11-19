@@ -1,4 +1,5 @@
 Authenticate\Authenticate.class
+Updateprofile\Updateprofile.class
 Login\Login.class
 User\User.class
-Registration\Registration.class
+Signup\Signup.class

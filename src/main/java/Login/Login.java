@@ -13,36 +13,31 @@ import Authenticate.Authenticate;
 
 @WebServlet("/logincontroller")
 public class Login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+    private static final long serialVersionUID = 1L;
+
     public Login() {
         super();
     }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		Authenticate auth = new Authenticate();
-		String userRole = auth.authenticate(username, password);
-		
-		if (userRole.equals("admin")) {
-			RequestDispatcher rd = request.getRequestDispatcher("admin");
-			rd.forward(request, response);
-		}
-		
-		else if (userRole.equals("coach")) {
-			RequestDispatcher rd = request.getRequestDispatcher("coach");
-			rd.forward(request, response);
-		}
-		
-		else if (userRole.equals("trainee")) {
-			RequestDispatcher rd = request.getRequestDispatcher("trainee");
-			rd.forward(request, response);
-		}
-		
-		else {
-			RequestDispatcher rd = request.getRequestDispatcher("error");
-			rd.forward(request, response);
-		}
-	}	
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+				String username = request.getParameter("username");
+				String password = request.getParameter("password");
+				Authenticate auth = new Authenticate();
+				String userRole = auth.authenticate(username, password);
+
+				if (userRole.equals("admin")) {
+					RequestDispatcher rd = request.getRequestDispatcher("admin");
+					rd.forward(request, response);
+				} else if (userRole.equals("student")) {
+					RequestDispatcher rd = request.getRequestDispatcher("student");
+					rd.forward(request, response);
+				} else {
+					// If username or password is incorrect, set an attribute for validation error
+					request.setAttribute("validationError", "Invalid username or password");
+					// Redirect back to the login page
+					RequestDispatcher rd = request.getRequestDispatcher("login");
+					rd.forward(request, response);
+				}
+    }
 }

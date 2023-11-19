@@ -5,16 +5,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error Page</title>
+    <title>Student Page</title>
     <script src="https://kit.fontawesome.com/fa133b6a54.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 font-sans">
-    <div class="container mx-auto p-4">
-        <h1 class="text-3xl font-bold mb-4">Login Error</h1>
-        <p class="text-lg mb-2">Your login credentials are incorrect. Please try again.</p>
-        <a href="login" class="text-blue-500 hover:underline">Go back to Login</a>
+<body class="bg-gray-100 font-sans flex items-center justify-center h-screen">
+    <div class="bg-white rounded-lg shadow-md p-8 flex flex-col items-center justify-center">
+        <h1 class="text-3xl font-bold mb-4">Welcome To Student Page</h1>
+        <p class="text-lg mb-2">You are logged in as student.</p>      
     </div>
 </body>
 
