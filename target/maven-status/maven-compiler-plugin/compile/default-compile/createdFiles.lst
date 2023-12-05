@@ -1,5 +1,5 @@
-Authenticate\Authenticate.class
-Updateprofile\Updateprofile.class
-Login\Login.class
-User\User.class
-Signup\Signup.class
+Controllers\User.class
+Controllers\Authenticate.class
+Controllers\Login.class
+Controllers\Signup.class
+Controllers\Updateprofile.class

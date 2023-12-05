@@ -1,4 +1,4 @@
-package Authenticate;
+package Controllers;
 
 public class Authenticate {
 

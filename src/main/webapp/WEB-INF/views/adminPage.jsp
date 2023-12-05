@@ -12,7 +12,7 @@
 
 <body class="bg-gray-100 font-sans flex items-center justify-center h-screen">
     <div class="bg-white rounded-lg shadow-md p-8 flex flex-col items-center justify-center">
-        <h1 class="text-3xl font-bold mb-4">Welcome To Admin Page</h1>
+        <h1 class="text-3xl font-bold mb-4">Welcome To Admin Page, New update</h1>
         <p class="text-lg mb-2">You are logged in as admin.</p>      
     </div>
 </body>
