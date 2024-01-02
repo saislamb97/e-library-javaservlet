@@ -1,5 +1,0 @@
-Controllers\User.class
-Controllers\Authenticate.class
-Controllers\Login.class
-Controllers\Signup.class
-Controllers\Updateprofile.class
