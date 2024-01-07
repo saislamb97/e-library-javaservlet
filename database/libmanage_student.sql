@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: libmanage
 -- ------------------------------------------------------
--- Server version	8.0.31
+-- Server version	8.0.35
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -38,7 +38,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES ('Sanjeev','203','M.Tech','5768975468','san@gmail.com'),('Rahul','205','M.Tech','5768975468','rahul@gmail.com'),('Tushar','206','Poly','9792119275','tushar@gmail.com'),('Harshit Gupta','301','B-tech','8787854965','gupta@gmail.com'),('Mukul Chauhan','3010','MSC','9792119275','mukul@gmail.com'),('Vashu Gupat','302','B-tech','5478965896','vasu@gmail.com'),('Shivanshu Pandey','303','B-tech','658789546','pandey@gmail.com'),('Anurag','304','B-tech','5478954869','anurag@gmail.com'),('Pankaj Kumar','305','B-tech','9792119275','pankaj@gmail.com'),('Lalit Kumar','306','B-tech','5879875689','lalit@gmail.com'),('Shanu kuamr','307','M.Tech','8787854965','shanu@gmail.com'),('Shivam','308','MBA','2547895462','shivam@gmail.com'),('Baba','309','BBA','8787854965','baba@gmail.com'),('Raju','5002','B-tech','5768975468','raju@gmail.com');
+INSERT INTO `student` VALUES ('Sanjeev','203','M.Tech','5768975468','san@gmail.com'),('saiful','2032','M.Tech','5768905469','saiful@gmail.com'),('Rahul','205','M.Tech','5768975468','rahul@gmail.com'),('Tushar','206','Poly','9792119275','tushar@gmail.com'),('Harshit Gupta','301','B-tech','8787854965','gupta@gmail.com'),('Mukul Chauhan','3010','MSC','9792119275','mukul@gmail.com'),('Vashu Gupat','302','B-tech','5478965896','vasu@gmail.com'),('Shivanshu Pandey','303','B-tech','658789546','pandey@gmail.com'),('Anurag','304','B-tech','5478954869','anurag@gmail.com'),('Pankaj Kumar','305','B-tech','9792119275','pankaj@gmail.com'),('Lalit Kumar','306','B-tech','5879875689','lalit@gmail.com'),('Shanu kuamr','307','M.Tech','8787854965','shanu@gmail.com'),('Shivam','308','MBA','2547895462','shivam@gmail.com'),('Baba','309','BBA','8787854965','baba@gmail.com'),('Raju','5002','B-tech','5768975468','raju@gmail.com');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-25  9:28:15
+-- Dump completed on 2024-01-07 22:04:19
