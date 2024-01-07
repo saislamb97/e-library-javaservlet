@@ -25,7 +25,7 @@ String name = find.findById(id);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library Manage</title>
-  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/libmain.css">
 </head>
 <body>
   <nav>
