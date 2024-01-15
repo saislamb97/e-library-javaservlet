@@ -1,38 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-     <%
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
 if(session.getAttribute("lid")==null)
 {
 	%>
-  <h1>Get lost</h1>
+  <div class="min-h-screen flex items-center justify-center">
+    <h1 class="text-4xl text-red-500">Get lost</h1>
+  </div>
   <%
   return ;
 }
-  %>
+%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Book Return Success</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #f1f1f1;
-		}
-		h1 {
-			color: #4CAF50;
-			text-align: center;
-			margin-top: 50px;
-		}
-		p {
-			font-size: 20px;
-			color: #333;
-			text-align: center;
-			margin-top: 30px;
-		}
-	</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Return Success</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-	<h1>Book Successfully Returned</h1>
-	<p>Thank you for returning the book. We hope you enjoyed it!</p>
+<body class="bg-gray-100">
+  <div class="text-center mt-20">
+    <h1 class="text-4xl text-green-500 font-bold">Book Successfully Returned</h1>
+    <p class="text-lg text-gray-700 mt-4">Thank you for returning the book. We hope you enjoyed it!</p>
+  </div>
 </body>
 </html>

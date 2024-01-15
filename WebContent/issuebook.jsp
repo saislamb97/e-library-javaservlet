@@ -1,107 +1,67 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-        <%
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
 if(session.getAttribute("lid")==null)
 {
 	%>
-  <h1>Get lost</h1>
+  <div class="min-h-screen flex items-center justify-center">
+    <h1 class="text-4xl font-bold text-red-500">Get lost</h1>
+  </div>
   <%
   return ;
 }
-  %>
+%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Issue Book</title>
-    <style>
-      /* Style for the form container */
-      .form-container {
-        max-width: 600px;
-        margin: 70px auto;
-        padding: 20px;
-        background-color: #f2f2f2;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      }
-
-      /* Style for the form fields */
-      label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-      }
-
-      input[type="text"], input[type="date"] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        font-size: 16px;
-      }
-
-      /* Style for the form button */
-      input[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 20px;
-        margin-top: 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-      }
-
-      input[type="submit"]:hover {
-        background-color: #45a049;
-      }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div class="form-container">
-      <form action="IssueBook">
-      <%
-        String status = (String)session.getAttribute("issuestatus");
-        if(status=="success")
-        {
-        	%>
-			<h3 style="color:green"> Book Issue Successfully !! </h3>
-			
-			<% 
-			session.setAttribute("issuestatus", null);
-        }
-        else if(status=="failure")
-        {
-        	%>
-			<h3 style="color:red">Some Error Occur !</h3>
-			<% 
-			session.setAttribute("issuestatus", null);
-        }
-        else if(status=="error")
-        {
-        	%>
-			<h3 style="color:red">Wrong Book-Id / Student-ID !!</h3>
-			<% 	
-			session.setAttribute("issuestatus", null);
-        }
-      
-        %>
-        <label for="bid">Book ID:</label>
-        <input type="text" id="bid" name="bid" placeholder="Enter your bid number">
+  <body class="bg-gray-100">
+    <div class="flex items-center justify-center h-screen">
+      <div class="bg-white p-8 rounded-lg shadow-md max-w-md">
+        <form action="IssueBook" class="space-y-4">
+          <%
+          String status = (String)session.getAttribute("issuestatus");
+          if(status=="success")
+          {
+          %>
+          <h3 class="text-green-500">Book Issue Successfully !!</h3>
+          <%
+          session.setAttribute("issuestatus", null);
+          }
+          else if(status=="failure")
+          {
+          %>
+          <h3 class="text-red-500">Some Error Occurred!</h3>
+          <%
+          session.setAttribute("issuestatus", null);
+          }
+          else if(status=="error")
+          {
+          %>
+          <h3 class="text-red-500">Wrong Book-Id / Student-ID !!</h3>
+          <%
+          session.setAttribute("issuestatus", null);
+          }
+          %>
 
-        <label for="sid">Student ID:</label>
-        <input type="text" id="sid" name="sid" placeholder="Enter your sid number">
+          <label for="bid" class="block font-bold text-gray-600">Book ID:</label>
+          <input type="text" id="bid" name="bid" placeholder="Enter your bid number" class="w-full px-4 py-2 border rounded-md">
 
-        <label for="issuedate">Issuedate:</label>
-        <input type="date" id="issuedate" name="issuedate">
+          <label for="sid" class="block font-bold text-gray-600">Student ID:</label>
+          <input type="text" id="sid" name="sid" placeholder="Enter your sid number" class="w-full px-4 py-2 border rounded-md">
 
-        <label for="duedate">Duedate:</label>
-        <input type="date" id="duedate" name="duedate">
+          <label for="issuedate" class="block font-bold text-gray-600">Issuedate:</label>
+          <input type="date" id="issuedate" name="issuedate" class="w-full px-4 py-2 border rounded-md">
 
-        <input type="submit" value="Submit">
-      </form>
+          <label for="duedate" class="block font-bold text-gray-600">Duedate:</label>
+          <input type="date" id="duedate" name="duedate" class="w-full px-4 py-2 border rounded-md">
+
+          <button type="submit" class="w-full bg-green-500 text-white py-2 px-4 rounded-md">Submit</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>

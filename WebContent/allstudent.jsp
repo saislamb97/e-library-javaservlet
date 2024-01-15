@@ -1,125 +1,66 @@
 <%@page import="com.lib.dao.StudentDAOImp"%>
 <%@page import="com.lib.dao.StudentDAO"%>
 <%@page import="java.sql.ResultSet"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-     <%
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
 if(session.getAttribute("lid")==null)
 {
-	%>
-  <h1>Get lost</h1>
-  <%
-  return ;
+    %>
+    <h1>Get lost</h1>
+    <%
+    return ;
 }
-  %>
+%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>All Student </title>
-	<style>.table-container {
-		max-width: 100%;
-		overflow-x: auto;
-		margin-bottom: 1em;
-	  }
-	  
-	  table {
-		width: 100%;
-		border-collapse: collapse;
-		border-spacing: 0;
-		font-size: 16px;
-		font-weight: 400;
-		line-height: 1.5;
-		color: #333;
-		background-color: #fff;
-		border: 1px solid #ccc;
-		border-radius: 4px;
-		overflow: hidden;
-		box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-	  }
-	  
-	  th,
-	  td {
-		padding: 12px 15px;
-		text-align: left;
-	  }
-	  
-	  th {
-		background-color: #f8f8f8;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.03em;
-		border-bottom: 1px solid #ccc;
-	  }
-	  
-	  tbody tr:nth-of-type(even) {
-		background-color: #f4f4f4;
-	  }
-	  
-	  tbody tr:hover {
-		background-color: #e0e0e0;
-	  }
-	  
-	  @media screen and (max-width: 600px) {
-		table {
-		  display: block;
-		  overflow-x: auto;
-		  white-space: nowrap;
-		}
-		
-		thead, tbody, th, td, tr {
-		  display: block;
-		}
-		
-		th {
-		  text-align: left;
-		}
-		
-		tbody tr td {
-		  border-bottom: 1px solid #ddd;
-		}
-		
-		tbody tr:last-of-type td {
-		  border-bottom: none;
-		}
-	  }
-	  </style>
-	</head>
-	<div class="table-container">
-		<table>
-		  <thead>
-			<tr>
-			  <th>Student Name</th>
-			  <th>Student ID</th>
-			  <th>Course</th>
-			  <th>Phone Number</th>
-			  <th>Email</th>
-			</tr>
-		  </thead>
-		  <tbody>
-		  <%
-		  StudentDAO student = new StudentDAOImp();
-		  ResultSet rs = student.findAll();
-		  while(rs.next())
-		  {
-			 %>
-			 <tr>
-			  <td><%=rs.getString(1) %></td>
-			  <td><%=rs.getString(2) %></td>
-			  <td><%=rs.getString(3) %></td>
-			  <td><%=rs.getString(4) %></td>
-			  <td><%=rs.getString(5) %></td>
-			</tr>
-			 <%  
-		  }
-		  
-		  
-		  %>
-			
-			
-			<!-- Add more rows for additional students -->
-		  </tbody>
-		</table>
-	  </div>
-	  
+    <meta charset="UTF-8">
+    <title>All Students</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100">
+
+<div class="max-w-full overflow-x-auto">
+    <table class="w-full border-collapse border border-gray-300 shadow-md bg-white rounded-lg">
+        <thead class="bg-gray-400 text-left">
+            <tr>
+                <th class="py-2 px-4 border-b">Student Name</th>
+                <th class="py-2 px-4 border-b">Student ID</th>
+                <th class="py-2 px-4 border-b">Course</th>
+                <th class="py-2 px-4 border-b">Phone Number</th>
+                <th class="py-2 px-4 border-b">Email</th>
+                <th class="py-2 px-4 border-b">Actions</th> <!-- Added for the Delete link -->
+            </tr>
+        </thead>
+        <tbody>
+            <%
+            StudentDAO student = new StudentDAOImp();
+            ResultSet rs = student.findAll();
+            while(rs.next()) {
+                %>
+                <tr class="<%
+                    if (rs.getRow() % 2 == 0) {
+                        out.print("bg-gray-50");
+                    } else {
+                        out.print("");
+                    }
+                %> hover:bg-gray-100">
+                    <td class="py-2 px-4 border-b"><%= rs.getString(1) %></td>
+                    <td class="py-2 px-4 border-b"><%= rs.getString(2) %></td>
+                    <td class="py-2 px-4 border-b"><%= rs.getString(3) %></td>
+                    <td class="py-2 px-4 border-b"><%= rs.getString(4) %></td>
+                    <td class="py-2 px-4 border-b"><%= rs.getString(5) %></td>
+                    <td class="py-2 px-4 border-b">
+                        <a href="DelStudent?student-id=<%= rs.getString(2) %>"
+                           class="text-red-500 hover:underline">Delete</a>
+                    </td>
+                </tr>
+                <%
+            }
+            %>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>
