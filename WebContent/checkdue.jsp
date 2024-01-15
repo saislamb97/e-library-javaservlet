@@ -1,91 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-     <%
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
 if(session.getAttribute("lid")==null)
 {
-	%>
-  <h1>Get lost</h1>
-  <%
-  return ;
+    %>
+    <h1>Get lost</h1>
+    <%
+    return ;
 }
-  %>
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        .form-container {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #fff;
-  padding: 30px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-label {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 12px 15px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-input[type="submit"] {
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 12px 15px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-input[type="submit"]:hover {
-  background-color: #3e8e41;
-}
-
-    </style>
+	<title>Check Due</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="form-container">
-        <h2>Check Due By Student ID</h2>
-        <form action="CheckDue">
-         <%
-        String status = (String)session.getAttribute("chstat");
-        if(status=="error")
-        {
-        	%>
-			<h3 style="color:red"> Enter Valid Student-Id !! </h3>
-			
-			<% 
-			session.setAttribute("chstat", null);
-        }
-        %>
-          <label for="student-id">Student ID:</label>
-          <input type="text" id="student-id" name="student-id" required>
-          <input type="submit" value="Check">
+<body class="bg-gray-100">
+    <div class="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
+        <h2 class="text-2xl font-bold mb-6 text-center">Check Due By Student ID</h2>
+        <form action="CheckDue" method="get" class="flex flex-col items-center">
+            <%
+            String status = (String)session.getAttribute("chstat");
+            if(status != null && status.equals("error")) {
+            %>
+                <h3 class="text-red-500 mb-4">Enter Valid Student ID!!</h3>
+            <%
+                session.setAttribute("chstat", null);
+            }
+            %>
+            <label for="student-id" class="text-lg font-semibold mb-2">Student ID:</label>
+            <input type="text" id="student-id" name="student-id" required
+                   class="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:border-blue-500">
+            <input type="submit" value="Check" class="bg-green-500 text-white px-6 py-2 rounded cursor-pointer transition duration-300 hover:bg-green-600">
         </form>
-      </div>
-      
+    </div>
 </body>
 </html>
